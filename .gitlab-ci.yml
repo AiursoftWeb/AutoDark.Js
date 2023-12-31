@@ -17,10 +17,9 @@ build_locally:
   stage: check
   script:
     - npm install
-    - npm run format
     - npm run lint
     - npm run build
-  
+
 deploy_to_npm:
   needs:
     - build_locally
