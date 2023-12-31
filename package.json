@@ -7,7 +7,7 @@
   "types": "dist/types/autodark.d.ts",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "build-css": "node-sass src/autodark.scss dist/css/autodark.css --output-style compressed --source-map true",
+    "build-css": "node-sass src/autodark.scss dist/css/autodark.min.css --output-style compressed --source-map true",
     "build-js": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json",
     "build": "npm run build-css && npm run build-js && npm run minify-all",
     "minify-cjs": "esbuild dist/cjs/autodark.js --bundle --minify --outfile=dist/cjs/autodark.min.js",

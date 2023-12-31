@@ -23,6 +23,8 @@ build:
   stage: build
   needs:
     - restore
+  dependencies:
+    - restore
   script:
     - npm run format
     - npm run build
