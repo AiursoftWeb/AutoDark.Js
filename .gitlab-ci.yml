@@ -1,7 +1,6 @@
 stages:
-  - build
-  - lint
-  - deploy
+  - check
+  - publish
 
 before_script:
   - 'cat /etc/lsb-release && uname -a && pwd && ls -ashl'
@@ -14,39 +13,21 @@ before_script:
   - 'npm --version'
   - 'node --version'
 
-restore:
-  stage: build
+build:
+  stage: check
   script:
     - npm install
-
-build:
-  stage: build
-  needs:
-    - restore
-  dependencies:
-    - restore
+    - npm run format
+    - npm run lint
+    - npm run build
+  
+deploy:
+  stage: publish
+  environment: production
   script:
+    - npm install
     - npm run format
     - npm run build
-
-lint:
-  stage: lint
-  needs:
-    - restore
-  dependencies:
-    - restore
-  script:
-    - npm run lint
-
-upload_to_npm:
-  stage: deploy
-  environment: production
-  needs:
-    - build
-    - lint
-  dependencies:
-    - build
-  script:
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
     - npm publish
   only:
