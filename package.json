@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jhlywa/chess.js"
+    "url": "https://gitlab.aiursoft.cn/aiursoft/autodark.js"
   },
   "dependencies": {
     "bootstrap": "^4.6.2"
