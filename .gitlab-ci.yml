@@ -32,7 +32,9 @@ build:
 lint:
   stage: lint
   needs:
-    - build
+    - restore
+  dependencies:
+    - restore
   script:
     - npm run lint
 
