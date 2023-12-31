@@ -6,12 +6,11 @@
 [![npm](https://img.shields.io/npm/v/@aiursoft/autodark.js?color=blue)](https://www.npmjs.com/package/@aiursoft/autodark.js)
 [![npm](https://img.shields.io/npm/dm/@aiursoft/autodark.js)](https://www.npmjs.com/package/@aiursoft/autodark.js)
 
-@aiursoft/autodark.js is a JavaScript library for detecting user's system dark mode and auto switch your website's theme.
+`@aiursoft/autodark.js` is a JavaScript library for detecting user's system dark mode and auto switch your website's theme.
 
 ## Installation
 
-Run the following command to install the most recent version of chess.js from
-NPM:
+Run the following command to install the most recent version of `@aiursoft/autodark.js` from npm:
 
 ```sh
 npm install @aiursoft/autodark.js
