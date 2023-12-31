@@ -7,5 +7,5 @@
     "strict": true,
     "target": "ESNext"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "build.js"]
 }

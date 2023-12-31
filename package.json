@@ -6,12 +6,15 @@
   "module": "dist/esm/autodark.js",
   "types": "dist/types/autodark.d.ts",
   "scripts": {
-    "build": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json",
-    "check": "npm run format:check && npm run lint && npm run test && npm run build",
     "clean": "rm -rf ./dist",
+    "build-css": "node-sass src/autodark.scss dist/css/autodark.css --output-style compressed --source-map true",
+    "build-js": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json",
+    "build": "npm run build-css && npm run build-js && npm run minify-all",
+    "minify-cjs": "esbuild dist/cjs/autodark.js --bundle --minify --outfile=dist/cjs/autodark.min.js",
+    "minify-esm": "esbuild dist/esm/autodark.js --bundle --minify --outfile=dist/esm/autodark.min.js",
+    "minify-all": "npm run minify-cjs && npm run minify-esm",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint": "eslint src/ --ext .ts"
+    "lint": "eslint src/ --ext .ts && prettier --check ."
   },
   "repository": {
     "type": "git",
@@ -21,11 +24,13 @@
     "bootstrap": "^4.6.2"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.17.0",
-    "@typescript-eslint/parser": "^5.17.0",
-    "eslint": "^8.12.0",
-    "prettier": "^3.1.0",
-    "typescript": "^4.6.3"
+    "esbuild": "^0.13.8",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "node-sass": "^9.0.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
   },
   "author": "Anduin Xue <anduin@aiursoft.com>",
   "license": "MIT"

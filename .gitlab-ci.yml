@@ -1,5 +1,6 @@
 stages:
   - build
+  - lint
   - deploy
 
 before_script:
@@ -23,13 +24,22 @@ build:
   needs:
     - restore
   script:
+    - npm run format
     - npm run build
+
+lint:
+  stage: lint
+  needs:
+    - build
+  script:
+    - npm run lint
 
 upload_to_npm:
   stage: deploy
   environment: production
   needs:
     - build
+    - lint
   dependencies:
     - build
   script:
