@@ -4,7 +4,15 @@
   background-color: #24292e !important;
 }
 
+.footer {
+  background-color: #f5f5f5;
+}
+
 @media (prefers-color-scheme: dark) {
+  .footer {
+    background-color: #1e2024 !important;
+  }
+
   .dropify-preview {
     background-color: rgb(42, 43, 45) !important;
   }
