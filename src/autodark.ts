@@ -30,7 +30,9 @@ const switchTheme = (theme: string): void => {
     '.navbar': isDark
       ? ['navbar-dark', 'navbar-light']
       : ['navbar-light', 'navbar-dark'],
-    '.fixed-top': isDark ? ['bg-dark', 'bg-light'] : ['bg-light', 'bg-dark'],
+    '.navbar-expand-md': isDark
+      ? ['bg-dark', 'bg-light']
+      : ['bg-light', 'bg-dark'],
     '.modal-content': isDark
       ? ['bg-dark', 'bg-light']
       : ['bg-light', 'bg-dark'],
