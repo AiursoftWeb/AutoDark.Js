@@ -13,7 +13,7 @@ before_script:
   - 'npm --version'
   - 'node --version'
 
-build:
+build_locally:
   stage: check
   script:
     - npm install
@@ -21,7 +21,9 @@ build:
     - npm run lint
     - npm run build
   
-deploy:
+deploy_to_npm:
+  needs:
+    - build_locally
   stage: publish
   environment: production
   script:
