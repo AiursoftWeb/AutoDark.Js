@@ -26,7 +26,7 @@ deploy_to_npm:
   stage: publish
   environment: production
   script:
-    - npm install
+    - npm clean-install
     - npm run format
     - npm run build
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
