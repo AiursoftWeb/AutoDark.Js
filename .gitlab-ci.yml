@@ -1,0 +1,38 @@
+stages:
+  - build
+  - deploy
+
+before_script:
+  - 'cat /etc/lsb-release && uname -a && pwd && ls -ashl'
+  - 'echo "Hostname: $(hostname)"'
+  - 'echo "Uptime: $(uptime -p)"'
+  - 'echo "Memory: $(free -h | awk "/^Mem:/{print \$2}")"'
+  - 'echo "CPU Cores: $(nproc)"'
+  - 'echo "Available Disk Space: $(df -h --output=avail / | tail -1)"'
+  - 'echo "IP Address: $(hostname -I)"'
+  - 'npm --version'
+  - 'node --version'
+
+restore:
+  stage: build
+  script:
+    - npm install
+
+build:
+  stage: build
+  needs:
+    - restore
+  script:
+    - npm run build
+
+upload_to_npm:
+  stage: deploy
+  environment: production
+  needs:
+    - build
+  dependencies:
+    - build
+  script:
+    - npm publish
+  only:
+    - master
