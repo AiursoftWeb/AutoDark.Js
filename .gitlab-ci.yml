@@ -16,7 +16,7 @@ before_script:
 build_locally:
   stage: check
   script:
-    - npm ci
+    - npm clean-install
     - npm run lint
     - npm run build
 
