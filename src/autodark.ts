@@ -23,8 +23,8 @@ export const darkThemeSettings: ThemeSettings = {
   ],
   '.navbar': [
     {
-      classToAdd: ['border-bottom', 'navbar-dark', 'bg-dark'],
-      classToRemove: ['navbar-light', 'bg-light', 'shadow-sm'],
+      classToAdd: ['navbar-dark', 'bg-dark'],
+      classToRemove: ['navbar-light', 'bg-light', 'border-bottom', 'shadow-sm'],
     },
   ],
   '.modal-content': [
