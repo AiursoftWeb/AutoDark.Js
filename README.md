@@ -19,13 +19,8 @@ npm install @aiursoft/autodark.js
 You also need to reference the CSS file in your HTML:
 
 ```html
-<link
-  rel="stylesheet"
-  href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
-<link
-  rel="stylesheet"
-  href="./node_modules/@aiursoft/autodark.js/dist/css/autodark.min.css"
-/>
+<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="./node_modules/@aiursoft/autodark.js/dist/css/autodark.min.css" />
 ```
 
 ## Reference JavaScript
