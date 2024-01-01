@@ -57,12 +57,6 @@ export const darkThemeSettings: ThemeSettings = {
       classToRemove: ['bg-light'],
     },
   ],
-  '.jumbotron': [
-    {
-      classToAdd: ['bg-dark'],
-      classToRemove: ['bg-light'],
-    },
-  ],
   '.bg-dark': [
     {
       classToAdd: [],
@@ -134,12 +128,6 @@ export const lightThemeSettings: ThemeSettings = {
     },
   ],
   '.card': [
-    {
-      classToAdd: ['bg-light'],
-      classToRemove: ['bg-dark'],
-    },
-  ],
-  '.jumbotron': [
     {
       classToAdd: ['bg-light'],
       classToRemove: ['bg-dark'],
