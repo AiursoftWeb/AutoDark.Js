@@ -7,15 +7,34 @@ const initTheme = (): void => {
     window.matchMedia('(prefers-color-scheme: dark)').matches
   ) {
     switchTheme('dark')
+
+    // Hack body
     const bodyElement = document.querySelector('body')
     if (bodyElement) {
       bodyElement.style.color = 'white'
     }
+
+    // Hack navbar
+    const navElement = document.querySelector('.navbar')
+    if (navElement) {
+      navElement.classList.remove('border-bottom')
+      navElement.classList.remove('shadow-sm')
+    }
+
   } else {
     switchTheme('light')
+
+    // Hack body
     const bodyElement = document.querySelector('body')
     if (bodyElement) {
       bodyElement.style.color = 'black'
+    }
+
+    // Hack navbar
+    const navElement = document.querySelector('.navbar')
+    if (navElement) {
+      navElement.classList.add('border-bottom')
+      navElement.classList.add('shadow-sm')
     }
   }
 }
