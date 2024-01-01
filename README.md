@@ -42,7 +42,10 @@ autoTheme()
 You also need to reference the CSS file in your HTML:
 
 ```html
-<link rel="stylesheet" href="./node_modules/@aiursoft/autodark.js/dist/css/autodark.min.css" />
+<link
+  rel="stylesheet"
+  href="./node_modules/@aiursoft/autodark.js/dist/css/autodark.min.css"
+/>
 ```
 
 You don't need to reference bootstrap's CSS file. The auto dark library is based on bootstrap's CSS file.
