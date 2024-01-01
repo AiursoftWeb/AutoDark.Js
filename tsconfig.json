@@ -5,7 +5,9 @@
     "removeComments": false,
     "sourceMap": true,
     "strict": true,
-    "target": "ESNext"
+    "target": "ESNext",
+    "outDir": "./dist/esm",
+    "module": "esnext"
   },
   "include": ["src/**/*"]
 }

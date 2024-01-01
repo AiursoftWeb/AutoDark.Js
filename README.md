@@ -14,50 +14,31 @@ npm install @aiursoft/autodark.js
 
 ## Importing
 
-### Import (as ESM)
-
-```js
-import { autoTheme } from '@aiursoft/autodark.js'
-autoTheme()
-```
-
-ECMAScript modules (ESM) can be directly imported in a browser:
-
-```html
-<script type="module">
-  import { autoTheme } from '@aiursoft/autodark.js'
-  autoTheme()
-</script>
-```
-
-### Import (as CommonJS)
-
-```js
-const { autoTheme } = require('@aiursoft/autodark.js')
-autoTheme()
-```
-
-### Reference CSS
+## Reference CSS
 
 You also need to reference the CSS file in your HTML:
 
 ```html
 <link
   rel="stylesheet"
+  href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+<link
+  rel="stylesheet"
   href="./node_modules/@aiursoft/autodark.js/dist/css/autodark.min.css"
 />
 ```
 
-You don't need to reference bootstrap's CSS file. The auto dark library is based on bootstrap's CSS file.
+## Reference JavaScript
 
-But you need to reference bootstrap's JavaScript file:
+You also need to reference bootstrap's JavaScript file:
 
 ```html
 <script src="./node_modules/jquery/dist/jquery.min.js" defer></script>
-<script
-  src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-  defer
-></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+<script type="module">
+  import { autoTheme } from './node_modules/@aiursoft/autodark.js/dist/esm/autodark.js'
+  autoTheme()
+</script>
 ```
 
 ## How to build locally
