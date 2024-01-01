@@ -1,6 +1,8 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+import { ItemChanges } from './ThemeSettings'
+import { darkThemeSettings } from './dark'
+import { lightThemeSettings } from './light'
 
-const initTheme = (): void => {
+const autoSwitchTheme = (): void => {
   // Replace dark theme class
   if (
     window.matchMedia &&
@@ -13,14 +15,6 @@ const initTheme = (): void => {
     if (bodyElement) {
       bodyElement.style.color = 'white'
     }
-
-    // Hack navbar
-    const navElement = document.querySelector('.navbar')
-    if (navElement) {
-      navElement.classList.remove('border-bottom')
-      navElement.classList.remove('shadow-sm')
-    }
-
   } else {
     switchTheme('light')
 
@@ -29,70 +23,50 @@ const initTheme = (): void => {
     if (bodyElement) {
       bodyElement.style.color = 'black'
     }
-
-    // Hack navbar
-    const navElement = document.querySelector('.navbar')
-    if (navElement) {
-      navElement.classList.add('border-bottom')
-      navElement.classList.add('shadow-sm')
-    }
   }
 }
 
 const switchTheme = (theme: string): void => {
   const isDark = theme === 'dark'
-  const themeSettings: { [key: string]: string[] } = {
-    body: isDark ? ['bg-dark', 'bg-light'] : ['bg-light', 'bg-dark'],
-    table: isDark
-      ? ['table-dark', 'table-light']
-      : ['table-light', 'table-dark'],
-    '.navbar': isDark
-      ? ['navbar-dark', 'navbar-light']
-      : ['navbar-light', 'navbar-dark'],
-    '.navbar-expand-md': isDark
-      ? ['bg-dark', 'bg-light']
-      : ['bg-light', 'bg-dark'],
-    '.modal-content': isDark
-      ? ['bg-dark', 'bg-light']
-      : ['bg-light', 'bg-dark'],
-    '.container-fluid': isDark
-      ? ['bg-dark', 'bg-light']
-      : ['bg-light', 'bg-dark'],
-    '.list-group-item': isDark
-      ? ['bg-dark', 'bg-light']
-      : ['bg-light', 'bg-dark'],
-    '.content-wrapper': isDark
-      ? ['bg-dark', 'bg-light']
-      : ['bg-light', 'bg-dark'],
-    '.card': isDark ? ['bg-dark', 'bg-light'] : ['bg-light', 'bg-dark'],
-    '.bg-light': isDark ? ['bg-dark', 'bg-light'] : ['bg-light', 'bg-dark'],
-    '.bg-white': isDark ? ['bg-dark', 'bg-light'] : ['bg-light', 'bg-dark'],
-    '.bd-footer': isDark ? ['bg-dark', 'bg-light'] : ['bg-light', 'bg-dark'],
-    '.bg': isDark ? ['bg-dark', 'bg-light'] : ['bg-light', 'bg-dark'],
-  }
+  const themeSettings = isDark ? darkThemeSettings : lightThemeSettings
 
+  // Apply the theme Settings:
   Object.keys(themeSettings).forEach((key) => {
     const settings = themeSettings[key]
+
+    // Get the elements:
     const elements = key.startsWith('.')
       ? document.querySelectorAll(key)
       : document.getElementsByTagName(key)
     Array.from(elements).forEach((el: Element) => {
-      if (Array.isArray(settings)) {
-        el.classList.add(settings[0])
-        el.classList.remove(settings[1])
-      } else {
+      if (!Array.isArray(settings)) {
         throw new Error('Invalid settings')
       }
+
+      console.log(document.getElementsByClassName('navbar')[0].classList)
+
+      // Apply the settings:
+      settings.forEach((itemChanges: ItemChanges) => {
+        itemChanges.classToAdd.forEach((className: string) => {
+          // Log which element added which class:
+          // console.log(`Adding class ${className} to element ${el}`)
+          el.classList.add(className)
+        })
+        itemChanges.classToRemove.forEach((className: string) => {
+          // console.log(`Removing class ${className} from element ${el}`)
+          el.classList.remove(className)
+        })
+      })
     })
   })
 }
 
 const autoTheme = (): void => {
-  initTheme()
+  autoSwitchTheme()
   window
     .matchMedia('(prefers-color-scheme: light)')
-    .addEventListener('change', initTheme)
-  window.addEventListener('load', initTheme)
+    .addEventListener('change', autoSwitchTheme)
+  window.addEventListener('load', autoSwitchTheme)
 }
 
 export { autoTheme, switchTheme }
