@@ -50,6 +50,16 @@ You also need to reference the CSS file in your HTML:
 
 You don't need to reference bootstrap's CSS file. The auto dark library is based on bootstrap's CSS file.
 
+But you need to reference bootstrap's JavaScript file:
+
+```html
+<script src="./node_modules/jquery/dist/jquery.min.js" defer></script>
+<script
+  src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+  defer
+></script>
+```
+
 ## How to build locally
 
 ```bash
