@@ -48,12 +48,9 @@ const switchTheme = (theme: string): void => {
       // Apply the settings:
       settings.forEach((itemChanges: ItemChanges) => {
         itemChanges.classToAdd.forEach((className: string) => {
-          // Log which element added which class:
-          // console.log(`Adding class ${className} to element ${el}`)
           el.classList.add(className)
         })
         itemChanges.classToRemove.forEach((className: string) => {
-          // console.log(`Removing class ${className} from element ${el}`)
           el.classList.remove(className)
         })
       })
