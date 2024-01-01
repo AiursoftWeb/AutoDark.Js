@@ -12,6 +12,8 @@ Run the following command to install the most recent version of `@aiursoft/autod
 npm install @aiursoft/autodark.js
 ```
 
+Bootstrap 4.6.2 is the only version that is tested. To use this project, you need to use bootstrap 4.6.2 in your project.
+
 ## Importing
 
 ## Reference CSS
