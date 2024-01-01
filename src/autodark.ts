@@ -1,6 +1,175 @@
-import { ItemChanges } from './ThemeSettings'
-import { darkThemeSettings } from './dark'
-import { lightThemeSettings } from './light'
+/* eslint-disable @typescript-eslint/naming-convention */
+
+export interface ItemChanges {
+  classToAdd: string[]
+  classToRemove: string[]
+}
+export interface ThemeSettings {
+  [key: string]: ItemChanges[]
+}
+
+export const darkThemeSettings: ThemeSettings = {
+  body: [
+    {
+      classToAdd: ['bg-dark'],
+      classToRemove: ['bg-light'],
+    },
+  ],
+  table: [
+    {
+      classToAdd: ['table-dark'],
+      classToRemove: ['table-light'],
+    },
+  ],
+  '.navbar': [
+    {
+      classToAdd: ['border-bottom', 'navbar-dark', 'bg-dark'],
+      classToRemove: ['navbar-light', 'bg-light', 'shadow-sm'],
+    },
+  ],
+  '.modal-content': [
+    {
+      classToAdd: ['bg-dark'],
+      classToRemove: ['bg-light'],
+    },
+  ],
+  '.container-fluid': [
+    {
+      classToAdd: ['bg-dark'],
+      classToRemove: ['bg-light'],
+    },
+  ],
+  '.list-group-item': [
+    {
+      classToAdd: ['bg-dark'],
+      classToRemove: ['bg-light'],
+    },
+  ],
+  '.content-wrapper': [
+    {
+      classToAdd: ['bg-dark'],
+      classToRemove: ['bg-light'],
+    },
+  ],
+  '.card': [
+    {
+      classToAdd: ['bg-dark'],
+      classToRemove: ['bg-light'],
+    },
+  ],
+  '.jumbotron': [
+    {
+      classToAdd: ['bg-dark'],
+      classToRemove: ['bg-light'],
+    },
+  ],
+  '.bg-dark': [
+    {
+      classToAdd: [],
+      classToRemove: ['bg-light'],
+    },
+  ],
+  '.bg-light': [
+    {
+      classToAdd: ['bg-dark'],
+      classToRemove: ['bg-light'],
+    },
+  ],
+  '.bg-white': [
+    {
+      classToAdd: ['bg-dark'],
+      classToRemove: ['bg-white', 'bg-light'],
+    },
+  ],
+  '.bg': [
+    {
+      classToAdd: ['bg-dark'],
+      classToRemove: ['bg-light'],
+    },
+  ],
+}
+
+export const lightThemeSettings: ThemeSettings = {
+  body: [
+    {
+      classToAdd: ['bg-light'],
+      classToRemove: ['bg-dark'],
+    },
+  ],
+  table: [
+    {
+      classToAdd: ['table-light'],
+      classToRemove: ['table-dark'],
+    },
+  ],
+  '.navbar': [
+    {
+      classToAdd: ['navbar-light', 'bg-light', 'border-bottom', 'shadow-sm'],
+      classToRemove: ['navbar-dark', 'bg-dark'],
+    },
+  ],
+
+  '.modal-content': [
+    {
+      classToAdd: ['bg-light'],
+      classToRemove: ['bg-dark'],
+    },
+  ],
+  '.container-fluid': [
+    {
+      classToAdd: ['bg-light'],
+      classToRemove: ['bg-dark'],
+    },
+  ],
+  '.list-group-item': [
+    {
+      classToAdd: ['bg-light'],
+      classToRemove: ['bg-dark'],
+    },
+  ],
+  '.content-wrapper': [
+    {
+      classToAdd: ['bg-light'],
+      classToRemove: ['bg-dark'],
+    },
+  ],
+  '.card': [
+    {
+      classToAdd: ['bg-light'],
+      classToRemove: ['bg-dark'],
+    },
+  ],
+  '.jumbotron': [
+    {
+      classToAdd: ['bg-light'],
+      classToRemove: ['bg-dark'],
+    },
+  ],
+  '.bg-dark': [
+    {
+      classToAdd: ['bg-light'],
+      classToRemove: ['bg-dark'],
+    },
+  ],
+  '.bg-light': [
+    {
+      classToAdd: [],
+      classToRemove: ['bg-dark'],
+    },
+  ],
+  '.bg-white': [
+    {
+      classToAdd: ['bg-light'],
+      classToRemove: ['bg-white', 'bg-dark'],
+    },
+  ],
+  '.bg': [
+    {
+      classToAdd: ['bg-light'],
+      classToRemove: ['bg-dark'],
+    },
+  ],
+}
 
 const autoSwitchTheme = (): void => {
   // Replace dark theme class
