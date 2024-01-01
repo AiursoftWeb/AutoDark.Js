@@ -212,8 +212,6 @@ const switchTheme = (theme: string): void => {
         throw new Error('Invalid settings')
       }
 
-      console.log(document.getElementsByClassName('navbar')[0].classList)
-
       // Apply the settings:
       settings.forEach((itemChanges: ItemChanges) => {
         itemChanges.classToAdd.forEach((className: string) => {
