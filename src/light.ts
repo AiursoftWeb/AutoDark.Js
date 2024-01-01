@@ -75,12 +75,6 @@ export const lightThemeSettings: ThemeSettings = {
       classToRemove: ['bg-white', 'bg-dark'],
     },
   ],
-  '.bd-footer': [
-    {
-      classToAdd: ['bg-light'],
-      classToRemove: ['bg-dark'],
-    },
-  ],
   '.bg': [
     {
       classToAdd: ['bg-light'],
