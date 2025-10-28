@@ -1,6 +1,6 @@
 # AutoDark.js
 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/aiursoft/autodark.js/-/blob/master/LICENSE) [![Pipeline stat](https://gitlab.aiursoft.cn/aiursoft/autodark.js/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/aiursoft/autodark.js/-/pipelines) [![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/aiursoft/autodark.js.svg)](https://gitlab.aiursoft.cn/aiursoft/autodark.js/-/commits/master?ref_type=heads) [![npm](https://img.shields.io/npm/v/@aiursoft/autodark.js?color=blue)](https://www.npmjs.com/package/@aiursoft/autodark.js) [![npm](https://img.shields.io/npm/dm/@aiursoft/autodark.js)](https://www.npmjs.com/package/@aiursoft/autodark.js)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/aiursoft/autodark.js/-/blob/master/LICENSE) [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/autodark.js/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/autodark.js/-/pipelines) [![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.com/aiursoft/autodark.js.svg)](https://gitlab.aiursoft.com/aiursoft/autodark.js/-/commits/master?ref_type=heads) [![npm](https://img.shields.io/npm/v/@aiursoft/autodark.js?color=blue)](https://www.npmjs.com/package/@aiursoft/autodark.js) [![npm](https://img.shields.io/npm/dm/@aiursoft/autodark.js)](https://www.npmjs.com/package/@aiursoft/autodark.js)
 
 `@aiursoft/autodark.js` is a JavaScript library for detecting user's system dark mode and auto switch your website's theme.
 
