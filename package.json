@@ -1,6 +1,6 @@
 {
   "name": "@aiursoft/autodark.js",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Auto dark theme",
   "module": "dist/esm/autodark.js",
   "types": "dist/types/autodark.d.ts",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.aiursoft.com/aiursoft/autodark.js"
+    "url": "https://github.com/AiursoftWeb/autodark.js"
   },
   "dependencies": {
     "bootstrap": "^4.6.2"
