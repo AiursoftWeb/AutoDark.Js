@@ -1,0 +1,2 @@
+# Keep compiled distribution files in the npm package.
+node_modules/
