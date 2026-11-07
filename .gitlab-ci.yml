@@ -1,36 +1,20 @@
 stages:
   - check
-  - publish
 
-before_script:
-  - 'cat /etc/lsb-release && uname -a && pwd && ls -ashl'
-  - 'echo "Hostname: $(hostname)"'
-  - 'echo "Uptime: $(uptime -p)"'
-  - 'echo "Memory: $(free -h | awk "/^Mem:/{print \$2}")"'
-  - 'echo "CPU Cores: $(nproc)"'
-  - 'echo "Available Disk Space: $(df -h --output=avail / | tail -1)"'
-  - 'echo "IP Address: $(hostname -I)"'
-  - 'npm --version'
-  - 'node --version'
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
 
-build_locally:
+check:
   stage: check
   script:
-    - npm clean-install
-    - npm run lint
-    - npm run build
-
-deploy_to_npm:
-  needs:
-    - build_locally
-  stage: publish
-  environment: production
-  script:
-    - npm clean-install
-    - npm run clean
-    - npm run format
-    - npm run build
-    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
-    - npm publish --access public || true
-  only:
-    - master
+    - npm ci
+    - npm run check
+    - npm pack
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - '*.tgz'
