@@ -10,7 +10,8 @@
     "build-js": "tsc -b ./tsconfig.json ./tsconfig.types.json",
     "build": "npm run build-css && npm run build-js",
     "format": "prettier --write .",
-    "lint": "eslint src/ --ext .ts && prettier --check ."
+    "lint": "eslint src/ --ext .ts && prettier --check .",
+    "check": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
