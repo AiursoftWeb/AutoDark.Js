@@ -1,5 +1,6 @@
 stages:
   - check
+  - publish
 
 workflow:
   rules:
@@ -18,3 +19,32 @@ check:
     expire_in: 1 week
     paths:
       - '*.tgz'
+
+publish:
+  stage: publish
+  needs:
+    - job: check
+      artifacts: true
+  resource_group: npm-publish
+  script:
+    - |
+      set -- *.tgz
+      test "$#" -eq 1
+      test -f "$1"
+      package_name=$(node -p 'encodeURIComponent(require("./package.json").name)')
+      package_version=$(node -p 'require("./package.json").version')
+      status=$(curl --silent --show-error --location --output /dev/null --write-out '%{http_code}' \
+        "https://registry.npmjs.org/$package_name/$package_version")
+      case "$status" in
+        200) echo "Version $package_version is already published; skipping."; exit 0 ;;
+        404) ;;
+        *) echo "Cannot check published versions (HTTP $status)." >&2; exit 1 ;;
+      esac
+      : "${NPM_TOKEN:?npm publishing credential is required}"
+      npm_config_userconfig=$(mktemp)
+      export npm_config_userconfig
+      trap 'rm -f "$npm_config_userconfig"' EXIT
+      printf '%s\n' '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > "$npm_config_userconfig"
+      npm publish "$1" --registry=https://registry.npmjs.org --access public --ignore-scripts
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
