@@ -1,4 +1,6 @@
 configVersion: 1
+npm:
+  updateDependencies: true
 http:
   profiles:
     company-source:
@@ -16,3 +18,5 @@ files:
     contentUri: https://gitlab.aiursoft.com/api/v4/projects/aiursoft%2FUIStack.js/repository/files/.npmrc/raw?ref=master
   - name: ninja.yaml
     contentUri: https://gitlab.aiursoft.com/api/v4/projects/aiursoft%2FUIStack.js/repository/files/ninja.yaml/raw?ref=master
+  - name: .prettierignore
+    contentUri: https://gitlab.aiursoft.com/api/v4/projects/aiursoft%2FUIStack.js/repository/files/.prettierignore/raw?ref=master
