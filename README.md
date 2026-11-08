@@ -21,6 +21,8 @@ autoTheme()
 
 ## Development
 
+Use Node.js 20 or a newer supported LTS release.
+
 ```bash
 npm ci
 npm run check

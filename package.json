@@ -1,6 +1,6 @@
 {
   "name": "@aiursoft/autodark.js",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Auto dark theme",
   "module": "dist/esm/autodark.js",
   "types": "dist/types/autodark.d.ts",
@@ -21,7 +21,6 @@
     "bootstrap": "^4.6.2"
   },
   "devDependencies": {
-    "esbuild": "^0.19.12",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.57.1",
@@ -30,5 +29,10 @@
     "typescript": "^5.9.3"
   },
   "author": "Anduin Xue <anduin@aiursoft.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "overrides": {
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.5"
+    }
+  }
 }
