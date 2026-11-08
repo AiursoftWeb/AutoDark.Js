@@ -1,4 +1,5 @@
 stages:
+  - s360
   - check
   - publish
 
@@ -7,7 +8,25 @@ workflow:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
       when: never
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      variables:
+        S360_PURPOSE: baseline
+        S360_CHECK_KEY: '$S360_BASELINE_KEY'
     - if: '$CI_COMMIT_BRANCH'
+
+variables:
+  S360_PURPOSE: review
+  S360_CHECK_KEY: ''
+
+s360:
+  stage: s360
+  script:
+    - export PATH="$PATH:$HOME/.dotnet/tools"
+    - dotnet tool update Aiursoft.S360.Client --global --add-source https://nuget.aiursoft.com/v3/index.json
+    - s360 check --path . --ecosystem npm --npm-lockfile-only --purpose "$S360_PURPOSE"
+  retry:
+    max: 2
+    when: runner_system_failure
 
 check:
   stage: check
