@@ -1,6 +1,6 @@
 {
   "name": "@aiursoft/autodark.js",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Auto dark theme",
   "module": "dist/esm/autodark.js",
   "types": "dist/types/autodark.d.ts",
