@@ -1,16 +1,18 @@
+<a name="autodarkjs"></a>
+
 # Aiursoft AutoDark.js
 
 [![Pipeline](https://badge-proxy.aiursoft.com/aiursoft/autodark.js/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/autodark.js/-/pipelines) [![npm](https://img.shields.io/npm/v/@aiursoft/autodark.js)](https://www.npmjs.com/package/@aiursoft/autodark.js)
 
 Detect the system color scheme and apply a Bootstrap 4.6.2 theme.
 
-<a name="autodarkjs"></a> <a name="install"></a>
-
 ## Overview
 
 ### What is AutoDark.js?
 
 Detect the system color scheme and apply a Bootstrap 4.6.2 theme.
+
+<a name="install"></a>
 
 ## Installation
 
